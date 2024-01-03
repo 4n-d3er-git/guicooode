@@ -6,7 +6,7 @@ Une application dans laquelle vous trouverez à peu près tous les codes ussd de
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/4n-d3er-git/guicooode/blob/main/assets/guicode.jpg)
 
 
 ## Fonctonnalités
