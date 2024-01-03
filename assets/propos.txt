@@ -1,0 +1,3 @@
+GuiCode est une applicaton dans laquelle vous trouvez à peu près
+ tous les codes ussd des réseaux de télécomunication tels que
+Orange, MTN et Celcom  se trouvant en Guinée Conakry.
