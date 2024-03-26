@@ -68,7 +68,7 @@ class Qui_Suis_Je extends StatelessWidget {
           website: 'https://andersongoumou.000webhostapp.com',
           githubUserName: '4n-d3er-git',
           linkedinURL: 'https://www.linkedin.com/in/anderson-g-164802264/',
-          tagLine: 'Développeur Flutter',
+          tagLine: '',
           taglineColor: Colors.teal.shade100,
           twitterHandle: 'GoumouAnderson',
           instagram: 'an_der_s0n_',

@@ -5,6 +5,7 @@ import 'package:guicode/cellcom/cellcom.dart';
 import 'package:guicode/mtn/mtn.dart';
 import 'package:guicode/options/option.dart';
 import 'package:guicode/orange/orange.dart';
+import 'package:flutter/cupertino.dart';
 
 class Accueil extends StatefulWidget {
   Accueil({Key? key, required this.title}) : super(key: key);
@@ -129,7 +130,11 @@ class _MyHomePageState extends State<Accueil> {
           widget.title,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
-        bottom: const TabBar(
+        bottom:  TabBar(
+          indicatorColor: Colors.blue,
+          indicatorWeight: 7 ,
+          indicatorSize: TabBarIndicatorSize.tab,
+          splashBorderRadius: BorderRadius.all(Radius.circular(50)),
           tabs: [
             Tab(
               icon: CircleAvatar(

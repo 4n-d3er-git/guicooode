@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="GuiCode"
+        android:label="GuiCode" 
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity
@@ -32,6 +32,9 @@
 
         <meta-data
            android:name="com.google.android.gms.ads.APPLICATION_ID"
-           android:value="ca-app-pub-2439901986027384~7634442001"/>    
+           android:value="ca-app-pub-7229654893754092~2909998080"/>
+           <!-- android:value="ca-app-pub-2439901986027384~7634442001"/>   test -->
+           
+            
     </application>
 </manifest>

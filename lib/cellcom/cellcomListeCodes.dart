@@ -8,8 +8,7 @@ class Cellcom implements Comparable<Cellcom> {
 }
 
  const ussdetcodecellcom = [
-    Cellcom('Anderson Goumou', '', ),
-    Cellcom('Information sur le solde', '*223#', ),
+    Cellcom('Information sur le solde',                 '*223#', ),
     Cellcom('Acheter un forfait Internet', '700', ),
     
   ];
@@ -28,8 +27,8 @@ class Cellcom implements Comparable<Cellcom> {
   ];
 
   static final codesUssdCellcom = [
-    '*223#',
-    '*7OO#',
+                    '*223#',
+                    '*7OO#',
     
     
   ];

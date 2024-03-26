@@ -1,11 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:search_page/search_page.dart';
 import 'package:guicode/mtn/mtnListeCodes.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 
-class MTN extends StatelessWidget {
+
+class MTN extends StatefulWidget {
   const MTN({super.key});
+
+  @override
+  State<MTN> createState() => _MTNState();
+}
+
+class _MTNState extends State<MTN> {
+
+  InterstitialAd? interstitialAd;
+  bool isInterstitialAdLoaded = false;
+
+  void loadInterstitial() {
+    InterstitialAd.load(
+      
+      adUnitId: 
+      "ca-app-pub-7229654893754092/9010044563",
+      //test
+      // "ca-app-pub-3940256099942544/1033173712",
+      request: const AdRequest(),
+      adLoadCallback: InterstitialAdLoadCallback(
+        onAdLoaded: (ad) {
+          print("InterstitialAd Loaded");
+          setState(() {
+            interstitialAd = ad;
+            isInterstitialAdLoaded = true;
+          });
+        },
+        onAdFailedToLoad: (error) {
+          print("InterstitialAd Failed to Load");
+        },
+      ),
+    );
+  }
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    loadInterstitial();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +64,7 @@ final titles = listesCodes.mtnTitres;
                 //                           <--widget Card
                 child: ListTile(
                   leading: Image.asset('assets/mtn.png'),
-                  title: Text(titles[index]),
+                  title: Text(titles[index], style: TextStyle(fontWeight: FontWeight.bold,),),
                   subtitle: Container(
                     margin: const EdgeInsets.only(top: 10.0),
                     child: Text(
@@ -35,13 +77,15 @@ final titles = listesCodes.mtnTitres;
                     
                   ),
                   trailing: OutlinedButton(
-                    style: OutlinedButton.styleFrom(primary: Colors.black),
+                    style: OutlinedButton.styleFrom(foregroundColor: Colors.black),
                     onPressed: () {
                       var telToDial = subTitles[index];
                       telToDial = telToDial.substring(0, telToDial.length - 1);
-                      launchURL("tel:$telToDial" + "%23");
+                      // launchURL("tel:$telToDial" + "%23");
+                      FlutterPhoneDirectCaller.callNumber(telToDial + Uri.encodeComponent("#"));
+                      print("direct");
                     },
-                    child: const Text('Composer'),
+                    child: const Text('Lancer'),
                   ),
                   onTap: () {
                     var telToDial = subTitles[index];
@@ -56,7 +100,10 @@ final titles = listesCodes.mtnTitres;
         backgroundColor: Colors.yellow[700],
         elevation: 10,
         tooltip: 'Rchercher',
-        onPressed: () => showSearch(
+        onPressed: () {
+          if (isInterstitialAdLoaded) {
+                          interstitialAd!.show();}
+           showSearch(
           context: context,
           delegate: SearchPage(
             onQueryUpdate: print,
@@ -83,7 +130,7 @@ final titles = listesCodes.mtnTitres;
                 //                           <-- widget Card
                 child: ListTile(
                   leading: Image.asset('assets/mtn.png'),
-                  title: Text(mtn.titres),
+                  title: Text(mtn.titres, style: TextStyle(fontWeight: FontWeight.bold)),
                   subtitle: Container(
                     margin: const EdgeInsets.only(top: 10.0),
                     child: Text(
@@ -95,13 +142,15 @@ final titles = listesCodes.mtnTitres;
                     ),
                   ),
                   trailing: OutlinedButton(
-                    style: OutlinedButton.styleFrom(primary: Colors.black),
+                    style: OutlinedButton.styleFrom(foregroundColor: Colors.black),
                     onPressed: () {
                       var telToDial = mtn.codes;
                       telToDial = telToDial.substring(0, telToDial.length - 1);
-                      launchURL("tel:$telToDial" + "%23");
+                      // launchURL("tel:$telToDial" + "%23");
+                      FlutterPhoneDirectCaller.callNumber(telToDial + Uri.encodeComponent("#"));
+                      print("direct");
                     },
-                    child: const Text('Composer'),
+                    child: const Text('Lancer'),
                   ),
                   onTap: () {
                     var telToDial = mtn.codes;
@@ -113,7 +162,7 @@ final titles = listesCodes.mtnTitres;
               
             )
             ),
-          ),
+          );},
         
         child: const Icon(Icons.search, color: Colors.white,),
 

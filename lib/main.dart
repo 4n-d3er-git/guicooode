@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:guicode/accueil.dart';
+import 'package:guicode/splash_screen.dart';
 
   
 void main() {
@@ -19,7 +19,7 @@ class GuiCode extends StatelessWidget {
           labelColor: Colors.black
          )
         ),
-        home: Accueil(title: '*GuiCode#',),
+        home: SplashScreen(),
         debugShowCheckedModeBanner: false,
       ),
     );
