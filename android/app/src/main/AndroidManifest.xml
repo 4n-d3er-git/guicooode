@@ -32,8 +32,7 @@
 
         <meta-data
            android:name="com.google.android.gms.ads.APPLICATION_ID"
-           android:value="ca-app-pub-7229654893754092~2909998080"/>
-           <!-- android:value="ca-app-pub-2439901986027384~7634442001"/>   test -->
+            android:value="ca-app-pub-2439901986027384~7634442001"/>  
            
             
     </application>
