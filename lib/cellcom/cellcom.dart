@@ -20,9 +20,8 @@ class _CELLCOMState extends State<CELLCOM> {
     InterstitialAd.load(
       
       adUnitId: 
-      "ca-app-pub-7229654893754092/9010044563",
       //test
-      // "ca-app-pub-3940256099942544/1033173712",
+      "ca-app-pub-3940256099942544/1033173712",
       request: const AdRequest(),
       adLoadCallback: InterstitialAdLoadCallback(
         onAdLoaded: (ad) {
