@@ -3,7 +3,7 @@
 
 Une application dans laquelle vous trouverez à peu près tous les codes ussd de Orange, MTN et Celcom en Guinée Conakry
 
-![Logo](https://play.google.com/store/apps/details?id=com.guicode)
+[![Logo](https://github.com/4n-d3er-git/guicooode/blob/main/assets/logodeplaystore.webp](https://play.google.com/store/apps/details?id=com.guicode)
 
 ## Screenshots
 
