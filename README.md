@@ -82,7 +82,7 @@ Notez bien: vous devez juste remplacer l'Id de l'application dans ```android/app
 
 ## License
 
-[MIT](https://github.com/4n-d3er-git/guicooode/tree/main?tab=MIT-1-ov-file#)
+[![MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/4n-d3er-git/guicooode/tree/main?tab=MIT-1-ov-file#)
 
 
 ## Commentaires
