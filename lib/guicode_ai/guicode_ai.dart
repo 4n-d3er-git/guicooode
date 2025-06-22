@@ -491,7 +491,7 @@ class CommandProcessor {
 //!-----------------------------------------------------------------------------
 
 class GeminiUSSDService {
-  static const String _apiKey = '';
+  static const String _apiKey = ' ';
   late final GenerativeModel _model;
 
   GeminiUSSDService() {
