@@ -1,24 +1,23 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:guicode/ad_helper.dart';
-import 'package:guicode/cellcom/cellcom.dart';
-import 'package:guicode/mtn/mtn.dart';
-import 'package:guicode/options/option.dart';
-import 'package:guicode/orange/orange.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:guicooode/ad_helper.dart';
+import 'package:guicooode/cellcom/cellcom.dart';
+import 'package:guicooode/mtn/mtn.dart';
+import 'package:guicooode/orange/orange.dart';
 
 class Accueil extends StatefulWidget {
-  Accueil({Key? key, required this.title}) : super(key: key);
+  const Accueil({super.key, required this.title});
 
   final String title;
 
   @override
-  _MyHomePageState createState() {
-    return _MyHomePageState();
+  AccueilState createState() {
+    return AccueilState();
   }
 }
 
-class _MyHomePageState extends State<Accueil> {
+class AccueilState extends State<Accueil> {
   late BannerAd _bannerAd;
   late BannerAd _bannerAd2;
   late BannerAd _bannerAd3;
@@ -33,7 +32,7 @@ class _MyHomePageState extends State<Accueil> {
   void initState() {
     super.initState();
     // chargement de ads.
-    print('initiation appelée');
+    log('initiation appelée');
     MobileAds.instance.initialize();
     //banner 1
     _bannerAd = BannerAd(
@@ -47,7 +46,7 @@ class _MyHomePageState extends State<Accueil> {
           });
         },
         onAdFailedToLoad: (ad, err) {
-          print('Echec de chargement de banner ad: ${err.message}');
+          log('Echec de chargement de banner ad: ${err.message}');
           _isBannerAdReady = false;
           ad.dispose();
         },
@@ -64,11 +63,11 @@ class _MyHomePageState extends State<Accueil> {
         onAdLoaded: (_) {
           setState(() {
             _isBannerAdReady2 = true;
-            print('banner 2 chargé');
+            log('banner 2 chargé');
           });
         },
         onAdFailedToLoad: (ad, err) {
-          print('Echec de chargement de banner ad: ${err.message}');
+          log('Echec de chargement de banner ad: ${err.message}');
           _isBannerAdReady2 = false;
           ad.dispose();
         },
@@ -85,11 +84,11 @@ class _MyHomePageState extends State<Accueil> {
         onAdLoaded: (_) {
           setState(() {
             _isBannerAdReady3 = true;
-            print('banner 3 chargé');
+            log('banner 3 chargé');
           });
         },
         onAdFailedToLoad: (ad, err) {
-          print('Echec de chargement de banner ad: ${err.message}');
+          log('Echec de chargement de banner ad: ${err.message}');
           _isBannerAdReady3 = false;
           ad.dispose();
         },
@@ -106,11 +105,11 @@ class _MyHomePageState extends State<Accueil> {
         onAdLoaded: (_) {
           setState(() {
             _isBannerAdReady4 = true;
-            print('banner 4 chargé');
+            log('banner 4 chargé');
           });
         },
         onAdFailedToLoad: (ad, err) {
-          print('Echec de chargement de banner ad: ${err.message}');
+          log('Echec de chargement de banner ad: ${err.message}');
           _isBannerAdReady4 = false;
           ad.dispose();
         },
@@ -121,132 +120,423 @@ class _MyHomePageState extends State<Accueil> {
 
   @override
   Widget build(BuildContext context) {
-    print('build appelée');
-
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          widget.title,
-          style: const TextStyle(fontWeight: FontWeight.bold),
-        ),
-        bottom:  TabBar(
-          indicatorColor: Colors.blue,
-          indicatorWeight: 7 ,
-          indicatorSize: TabBarIndicatorSize.tab,
-          splashBorderRadius: BorderRadius.all(Radius.circular(50)),
-          tabs: [
-            Tab(
-              icon: CircleAvatar(
-                radius: 20,
-                backgroundImage: ExactAssetImage('assets/orange.png'),
-                backgroundColor: Colors.orange,
-              ),
-              text: 'Orange',
+    return DefaultTabController(
+      length: 3,
+      child: Scaffold(
+        backgroundColor: Colors.grey.shade50,
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: Text(
+            widget.title,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+              color: Color(0xFF2D3748),
             ),
-            Tab(
-              icon: CircleAvatar(
-                radius: 20,
-                backgroundImage: ExactAssetImage('assets/mtn.png'),
-                backgroundColor: Colors.yellow,
+          ),
+          // AppBar avec ombre moderne
+          shadowColor: Colors.grey.withOpacity(0.1),
+          surfaceTintColor: Colors.transparent,
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(50),
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: const Offset(0, 2),
+                  ),
+                ],
               ),
-              text: 'MTN',
-            ),
-            Tab(
-              icon: CircleAvatar(
-                radius: 20,
-                backgroundImage: ExactAssetImage('assets/cellcom.jpg'),
-              ),
-              text: 'Celcom',
-            ),
-            Tab(
-              icon: CircleAvatar(
-                radius: 20,
-                child: Icon(
-                  Icons.info,
-                  color: Colors.blue,
+              child: TabBar(
+                indicatorColor: Colors.blue.shade600,
+                indicatorWeight: 3,
+                indicatorSize: TabBarIndicatorSize.tab,
+                indicatorPadding: const EdgeInsets.symmetric(horizontal: 20),
+                splashBorderRadius: const BorderRadius.all(Radius.circular(50)),
+                dividerColor: Colors.transparent,
+                labelColor: const Color(0xFF2D3748),
+                unselectedLabelColor: Colors.grey.shade600,
+                labelStyle: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 13,
                 ),
+
+                unselectedLabelStyle: const TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 12,
+                ),
+                tabs: [
+                  Tab(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.orange.shade400,
+                                Colors.orange.shade600,
+                              ],
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.orange.withOpacity(0.3),
+                                blurRadius: 8,
+                                offset: const Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: ExactAssetImage('assets/orange.png'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
+                        // const SizedBox(height: 6),
+                        const Text('Orange'),
+                      ],
+                    ),
+                  ),
+                  Tab(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.yellow.shade500,
+                                Colors.orange.shade500,
+                              ],
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.yellow.withOpacity(0.3),
+                                blurRadius: 8,
+                                offset: const Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: ExactAssetImage('assets/mtn.png'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
+                        // const SizedBox(height: 6),
+                        const Text('MTN'),
+                      ],
+                    ),
+                  ),
+                  Tab(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          width: 30,
+                          height: 30,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.red.shade400,
+                                Colors.pink.shade400,
+                              ],
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.red.withOpacity(0.3),
+                                blurRadius: 8,
+                                offset: const Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Container(
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: ExactAssetImage('assets/cellcom.jpg'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                        ),
+                        // const SizedBox(height: 6),
+                        const Text('Cellcom'),
+                      ],
+                    ),
+                  ),
+                  // Tab(
+                  //   child: Column(
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     children: [
+                  //       Container(
+                  //         width: 30,
+                  //         height: 30,
+                  //         decoration: BoxDecoration(
+                  //           shape: BoxShape.circle,
+                  //           gradient: LinearGradient(
+                  //             colors: [
+                  //               Colors.blue.shade400,
+                  //               Colors.blue.shade600,
+                  //             ],
+                  //           ),
+                  //           boxShadow: [
+                  //             BoxShadow(
+                  //               color: Colors.blue.withOpacity(0.3),
+                  //               blurRadius: 8,
+                  //               offset: const Offset(0, 3),
+                  //             ),
+                  //           ],
+                  //         ),
+                  //         child: const Icon(
+                  //           Icons.settings,
+                  //           color: Colors.white,
+                  //           size: 24,
+                  //         ),
+                  //       ),
+                  //       // const SizedBox(height: 6),
+                  //       const Text('Options'),
+                  //     ],
+                  //   ),
+                  // ),
+                ],
               ),
-              text: 'Options',
-            )
-          ],
+            ),
+          ),
         ),
-      ),
-      body: FutureBuilder<void>(
+        body: FutureBuilder<void>(
           future: _initGoogleMobileAds(),
           builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
             return TabBarView(
               children: [
-                Center(
+                // Orange Tab
+                Container(
+                  color: Colors.grey.shade50,
                   child: Column(
                     children: [
                       if (_isBannerAdReady)
-                        showBannerAds(
-                            height: _bannerAd.size.height.toDouble(),
-                            width: _bannerAd.size.width.toDouble(),
-                            bannerAd: _bannerAd),
+                        Container(
+                          margin: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.1),
+                                blurRadius: 8,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: showBannerAds(
+                              height: _bannerAd.size.height.toDouble(),
+                              width: _bannerAd.size.width.toDouble(),
+                              bannerAd: _bannerAd,
+                            ),
+                          ),
+                        ),
                       const Expanded(child: ORANGE()),
                     ],
                   ),
                 ),
-                Center(
+
+                // MTN Tab
+                Container(
+                  color: Colors.grey.shade50,
                   child: Column(
                     children: [
                       if (_isBannerAdReady2)
-                        showBannerAds(
-                            height: _bannerAd2.size.height.toDouble(),
-                            width: _bannerAd2.size.width.toDouble(),
-                            bannerAd: _bannerAd2),
+                        Container(
+                          margin: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.1),
+                                blurRadius: 8,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: showBannerAds(
+                              height: _bannerAd2.size.height.toDouble(),
+                              width: _bannerAd2.size.width.toDouble(),
+                              bannerAd: _bannerAd2,
+                            ),
+                          ),
+                        ),
                       const Expanded(child: MTN()),
                     ],
                   ),
                 ),
-                Center(
+
+                // CELLCOM Tab
+                Container(
+                  color: Colors.grey.shade50,
                   child: Column(
                     children: [
                       if (_isBannerAdReady3)
-                        showBannerAds(
-                            height: _bannerAd3.size.height.toDouble(),
-                            width: _bannerAd3.size.width.toDouble(),
-                            bannerAd: _bannerAd3),
-                      const Expanded(child: CELLCOM())
+                        Container(
+                          margin: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.1),
+                                blurRadius: 8,
+                                offset: const Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: showBannerAds(
+                              height: _bannerAd3.size.height.toDouble(),
+                              width: _bannerAd3.size.width.toDouble(),
+                              bannerAd: _bannerAd3,
+                            ),
+                          ),
+                        ),
+                      const Expanded(child: CELLCOM()),
                     ],
                   ),
                 ),
-                Center(
-                  child: Column(
-                    children: [
-                      if (_isBannerAdReady4)
-                        showBannerAds(
-                            height: _bannerAd4.size.height.toDouble(),
-                            width: _bannerAd4.size.width.toDouble(),
-                            bannerAd: _bannerAd4),
-                      const Expanded(child: Options()),
-                      Container(
-                        height: 50,
-                        width: double.maxFinite,
-                        decoration: const BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(20))),
-                        child: const Center(
-                            child: const Text.rich(TextSpan(
-                                text: "Conçue et Développée par",
-                                style: TextStyle(color: Colors.white),
-                                children: [
-                              TextSpan(
-                                  text: " Anderson GOUMOU",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16))
-                            ]))),
-                      )
-                    ],
-                  ),
-                ),
+
+                // // Options Tab
+                // Container(
+                //   color: Colors.grey.shade50,
+                //   child: Column(
+                //     children: [
+                //       if (_isBannerAdReady4)
+                //         Container(
+                //           margin: const EdgeInsets.all(10),
+                //           decoration: BoxDecoration(
+                //             borderRadius: BorderRadius.circular(12),
+                //             boxShadow: [
+                //               BoxShadow(
+                //                 color: Colors.grey.withOpacity(0.1),
+                //                 blurRadius: 8,
+                //                 offset: const Offset(0, 2),
+                //               ),
+                //             ],
+                //           ),
+                //           child: ClipRRect(
+                //             borderRadius: BorderRadius.circular(12),
+                //             child: showBannerAds(
+                //               height: _bannerAd4.size.height.toDouble(),
+                //               width: _bannerAd4.size.width.toDouble(),
+                //               bannerAd: _bannerAd4,
+                //             ),
+                //           ),
+                //         ),
+                //       const Expanded(child: Options()),
+
+                //       // Footer moderne
+                //       Container(
+                //         margin: const EdgeInsets.all(20),
+                //         decoration: BoxDecoration(
+                //           gradient: LinearGradient(
+                //             colors: [Colors.blue.shade400, Colors.blue.shade600],
+                //           ),
+                //           borderRadius: BorderRadius.circular(20),
+                //           boxShadow: [
+                //             BoxShadow(
+                //               color: Colors.blue.withOpacity(0.3),
+                //               blurRadius: 15,
+                //               offset: const Offset(0, 5),
+                //             ),
+                //           ],
+                //         ),
+                //         child: Container(
+                //           height: 60,
+                //           padding: const EdgeInsets.symmetric(horizontal: 20),
+                //           child: Row(
+                //             mainAxisAlignment: MainAxisAlignment.center,
+                //             children: [
+                //               Container(
+                //                 padding: const EdgeInsets.all(8),
+                //                 decoration: BoxDecoration(
+                //                   color: Colors.white.withOpacity(0.2),
+                //                   borderRadius: BorderRadius.circular(10),
+                //                 ),
+                //                 child: const Icon(
+                //                   Icons.code,
+                //                   color: Colors.white,
+                //                   size: 24,
+                //                 ),
+                //               ),
+                //               const SizedBox(width: 12),
+                //               const Expanded(
+                //                 child: Column(
+                //                   mainAxisAlignment: MainAxisAlignment.center,
+                //                   crossAxisAlignment: CrossAxisAlignment.start,
+                //                   children: [
+                //                     Text(
+                //                       "Conçue et Développée par",
+                //                       style: TextStyle(
+                //                         color: Colors.white,
+                //                         fontSize: 12,
+                //                         fontWeight: FontWeight.w400,
+                //                       ),
+                //                     ),
+                //                     Text(
+                //                       "Anderson GOUMOU",
+                //                       style: TextStyle(
+                //                         color: Colors.white,
+                //                         fontWeight: FontWeight.bold,
+                //                         fontSize: 16,
+                //                       ),
+                //                     ),
+                //                   ],
+                //                 ),
+                //               ),
+                //               Container(
+                //                 padding: const EdgeInsets.all(8),
+                //                 decoration: BoxDecoration(
+                //                   color: Colors.white.withOpacity(0.2),
+                //                   borderRadius: BorderRadius.circular(10),
+                //                 ),
+                //                 child: const Icon(
+                //                   Icons.favorite,
+                //                   color: Colors.white,
+                //                   size: 20,
+                //                 ),
+                //               ),
+                //             ],
+                //           ),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
               ],
             );
-          }),
+          },
+        ),
+      ),
     );
   }
 
@@ -261,18 +551,18 @@ class showBannerAds extends StatelessWidget {
   final double height;
   final BannerAd bannerAd;
 
-  const showBannerAds(
-      {Key? key,
-      required this.width,
-      required this.height,
-      required this.bannerAd})
-      : super(key: key);
+  const showBannerAds({
+    super.key,
+    required this.width,
+    required this.height,
+    required this.bannerAd,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.topCenter,
-      child: Container(
+      child: SizedBox(
         width: width,
         height: height,
         child: AdWidget(ad: bannerAd),
@@ -280,4 +570,3 @@ class showBannerAds extends StatelessWidget {
     );
   }
 }
-

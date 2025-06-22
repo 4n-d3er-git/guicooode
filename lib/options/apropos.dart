@@ -9,31 +9,28 @@ class APropos extends StatefulWidget {
 }
 
 class _ProposState extends State<APropos> {
-    String _contenu = "";
+  String _contenu = "";
   @override
-  void initState(){
+  void initState() {
     super.initState();
     lireAsset();
   }
-  Future<void> lireAsset() async{
+
+  Future<void> lireAsset() async {
     String fichierTexte = await rootBundle.loadString('assets/propos.txt');
     setState(() {
-      _contenu=fichierTexte;
-    
+      _contenu = fichierTexte;
     });
-    
-  } 
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Padding(
-        padding: EdgeInsets.all(20),
-        child: ListView(
-          children: [
-            Text(_contenu)
-          ],
-        ),
-      )
+      appBar: AppBar(title: const Text('A propos')),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: ListView(children: [Text(_contenu)]),
+      ),
     );
   }
 }

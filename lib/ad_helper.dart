@@ -6,9 +6,9 @@ class AdHelper {
       // vous pouvez le remplacer par le votre
       return 'ca-app-pub-3940256099942544/6300978111'; //test
     } else if (Platform.isIOS) {
-     return 'ca-app-pub-3940256099942544/2934735716'; //test
+      return 'ca-app-pub-3940256099942544/2934735716'; //test
     } else {
-      throw new UnsupportedError('Unsupported platform');
+      throw UnsupportedError('Unsupported platform');
     }
   }
 }

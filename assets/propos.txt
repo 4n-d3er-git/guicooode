@@ -1,3 +1,38 @@
-GuiCode est une applicaton dans laquelle vous trouvez à peu près
- tous les codes ussd des réseaux de télécomunication tels que
-Orange, MTN et Celcom  se trouvant en Guinée Conakry.
+GuiCode est une application mobile innovante pensée et conçue spécialement pour les utilisateurs de téléphonie mobile en Guinée. Dans un pays où l’utilisation des codes USSD est indispensable au quotidien — que ce soit pour consulter son solde, acheter des forfaits internet, transférer du crédit, gérer son compte mobile money ou accéder à des services bancaires — il est souvent difficile de se souvenir de tous ces codes. C’est là que GuiCode intervient.
+
+Grâce à GuiCode, vous retrouvez en un seul endroit tous les codes USSD utiles des principaux opérateurs télécoms présents en Guinée : Orange Guinée, MTN Guinée, et Celcom. Fini les recherches interminables ou les oublis, vous avez désormais accès à une base claire, simple et organisée par catégories.
+
+Nouvelle fonctionnalité révolutionnaire : les commandes vocales
+
+Nous avons voulu aller encore plus loin pour simplifier votre quotidien. Avec GuiCode, vous pouvez désormais exécuter des codes USSD simplement avec votre voix. Imaginez : au lieu de taper un code compliqué, il vous suffit de dire par exemple « Acheter forfait internet MTN » et l’application s’occupe du reste.
+
+Cette fonctionnalité a été pensée pour :
+
+Faciliter l’accès aux services pour les personnes qui ne maîtrisent pas l’écriture des codes ;
+
+Faire gagner du temps à tous les utilisateurs pressés ou en déplacement ;
+
+Apporter une expérience fluide, intuitive et accessible à tous.
+
+Fonctionnalités principales de GuiCode
+
+📱 Accès rapide aux codes USSD d’Orange, MTN, Celcom ;
+
+🎙️ Exécution par commande vocale (nouveauté exclusive) ;
+
+🔖 Classement par catégories (Appels, Internet, Mobile Money, Promotions, etc.) ;
+
+🔄 Mises à jour régulières des nouveaux codes et services ;
+
+⭐ Interface simple, rapide et légère, même sur téléphones à faible mémoire ;
+
+🇬🇳 Application conçue localement pour répondre aux besoins des Guinéens.
+
+Pourquoi GuiCode ?
+Parce que nous croyons que la technologie doit simplifier la vie. Les codes USSD sont puissants mais souvent compliqués à retenir. Avec GuiCode, la technologie devient votre alliée, que vous soyez étudiant, commerçant, fonctionnaire ou entrepreneur. Nous voulons que chaque Guinéen puisse utiliser son téléphone pleinement, facilement et rapidement.
+
+Qui sommes-nous ?
+
+GuiCode est développé par Anderson GOUMOU, un passionné de technologie, engagé dans la création d’outils digitaux utiles et accessibles à tous en Afrique. Notre mission est claire : proposer des solutions simples aux problèmes quotidiens grâce à la technologie.
+
+Nous sommes convaincus que l’innovation doit partir des réalités locales. C’est pourquoi chaque fonctionnalité de GuiCode est pensée par un Guinéen, pour les Guinéens.

@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:guicode/splash_screen.dart';
+import 'package:guicooode/splash_screen.dart';
 
-  
 void main() {
-  runApp(GuiCode());
+  runApp(const GuiCode());
 }
 
 class GuiCode extends StatelessWidget {
+  const GuiCode({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 4,
-      child: MaterialApp(
-        title: 'Guicode',
-        theme: ThemeData(
-         tabBarTheme: const TabBarTheme(
+    return MaterialApp(
+      title: 'Guicode',
+      theme: ThemeData(
+        tabBarTheme: const TabBarThemeData(
           indicatorColor: Colors.black,
-          labelColor: Colors.black
-         )
+          labelColor: Colors.black,
         ),
-        home: SplashScreen(),
-        debugShowCheckedModeBanner: false,
       ),
+      home: const SplashScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
